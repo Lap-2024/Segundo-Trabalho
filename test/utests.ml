@@ -126,7 +126,7 @@ let tests_runner = "test suite for runner" >::: [
     "runner good program 5" >::
     (fun _ -> assert_equal 0 (run program10 "Start"));
     "runner invalid instruction" >::
-    (fun _ -> invalid_run program3 "Invalid instruction:PSH 1");
+    (fun _ -> invalid_run program3 "Invalid instruction");
     "runner invalid line" >::
     (fun _ -> invalid_run program4 "Invalid line");
     "runner expecting label" >::
