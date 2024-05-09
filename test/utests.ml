@@ -50,7 +50,7 @@ let program4 = [
 ]
 
 let program5 = [
-  "Start:PUSH 1";
+  "PUSH 1";
   "PUSH 2";
   "L0: ADD";
   "RETURN"
@@ -110,6 +110,24 @@ let program11 = [
   "RETURN"
 ]
 
+let program12 = [
+  "Start: PUSH 1";
+  "PUSH 0";
+  "DIV";
+  "RETURN";
+]
+
+let program13 = [
+  "Start:PUSH 1";
+  "PUSH 2";
+  "JMP Start";
+  "ADD";
+  "RETURN";
+]
+
+let program14 = [
+]
+
 let invalid_run p str_err =
   try ignore (run p "Start")
   with Failure s -> assert_equal str_err s
@@ -139,6 +157,12 @@ let tests_runner = "test suite for runner" >::: [
     (fun _ -> invalid_run program8 "No return instruction");
     "runner label not found" >::
     (fun _ -> invalid_run program11 "Label not found:L0");
+    "runner division by zero" >::
+    (fun _ -> invalid_run program12 "Division by zero");
+    "runner expecting label" >::
+    (fun _ -> invalid_run program13 "Expecting label");
+    "runner label not found" >::
+    (fun _ -> invalid_run program14 "Label not found:Start");
   ]
 
 let _ = run_test_tt_main tests_runner
