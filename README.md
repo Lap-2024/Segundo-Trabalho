@@ -36,8 +36,8 @@ do projeto e num terminal, executar o seguinte comando:
 Se todos os testes forem bem sucedidos, deverá obter a seguinte mensagem:
 
 ```console
-............
-Ran: 12 tests in: XXX seconds.
+...............
+Ran: 15 tests in: XXX seconds.
 OK
 ```
 
